@@ -1,0 +1,391 @@
+// menghitung jumlah kuantitas bilangan genap! misalkan kuantitas = 5, maka jumlah bilangan = 2 + 4 + 6 + 8 + 10 = 30.
+
+package main
+
+import "fmt"
+func main() {
+	var n int; fmt.Scan(&n)
+	var penjumlahan_hasil int
+	for i := 1; i <= n; i++ {
+		angka_sebanyak_n := 2 * i
+		penjumlahan_hasil += angka_sebanyak_n
+	}
+	fmt.Print(penjumlahan_hasil)
+}
+
+// menghitung total yang harus dibayar oleh konsumen. baris pertama adalah harga makanan, baris kedua adalah harga minuman, dan baris ketiga berisi true atau false, jika true konsumen memberi tip 5000 dan jika false konsumen tidak memberi tip.
+
+package main
+
+import "fmt"
+func main() {
+	var hargaMakanan int; fmt.Scan(&hargaMakanan)
+	var hargaMinuman int; fmt.Scan(&hargaMinuman)
+	var tip5000 bool; fmt.Scan(&tip5000)
+
+	total := hargaMakanan + hargaMinuman
+
+	if tip5000 {
+		total += 5000
+	}
+
+	fmt.Println(total)
+}
+
+// menentukan suatu alien pantas mendapat KTP dengan syarat usia minimal 10 dan fasih berbahasa golang.
+
+package main
+
+import "fmt"
+func main () {
+	var usia int; fmt.Scan(&usia)
+	var fasihBerbahasaGolang bool; fmt.Scan(&fasihBerbahasaGolang)
+	if usia >= 10 && fasihBerbahasaGolang == true {
+		fmt.Print("true")
+	} else {
+		fmt.Print("false")
+	}
+}
+
+// mencari median dari 3 bilangan bulat.
+
+package main
+
+import "fmt"
+func main () {
+	var a, b, c int
+	fmt.Scan(&a, &b, &c)
+	if a < b && b < c {
+		fmt.Print(b)
+	} else if a < c && c < b {
+		fmt.Print(c)
+	} else if b < c && c < a {
+		fmt.Print(c)
+	} else if b < a && a < c {
+		fmt.Print(a)
+	} else if c < a && a < b {
+		fmt.Print(a)
+	} else {
+		fmt.Print(b)
+	}
+}
+
+// menentukan suatu bilangan memiliki kuantitas angka faktor berjumlah genap
+
+package main
+
+import "fmt"
+func main() {
+    var angka int; fmt.Scan(&angka)
+    kuantitasFaktor := 0
+    for i := 1; i <= angka; i++ {
+        if angka % i == 0 {
+            kuantitasFaktor++
+        }
+    }
+    if kuantitasFaktor%2 == 0 {
+        fmt.Print("true")
+    } else {
+        fmt.Print("false")
+    }
+}
+
+// menjumlahkan bilangan pecahan. jika penyebutnya sama, maka jumlahkan bagian pembilang. jika penyebutnya beda, maka 0 saja.
+
+package main
+
+import "fmt"
+func main () {
+	var pembilang1, penyebut1, pembilang2, penyebut2 int
+	fmt.Scan(&pembilang1, &penyebut1, &pembilang2, &penyebut2)
+	penjumlahanPembilang := pembilang1 + pembilang2
+	if penyebut1 != penyebut2 {
+		fmt.Print("0")
+	} else if penyebut1 == penyebut2 {
+		fmt.Print(penjumlahanPembilang)
+	}
+}
+
+// menghitung kuantitas bilangan positif dan negatif dari serangkaian bilangan yang diinputkan. program berakhir jika input 0.
+
+package main
+
+import "fmt"
+func main() {
+    var berhenti0 int; fmt.Scan(&berhenti0)
+    kuantitasPositif := 0
+    kuantitasNegatif := 0
+    for berhenti0 != 0 {
+        fmt.Scan(&berhenti0)
+        if berhenti0 >= 0 {
+            kuantitasPositif++
+        } else if berhenti0 < 0 {
+            kuantitasNegatif++
+        }
+    }
+    fmt.Print(kuantitasPositif, kuantitasNegatif)
+}
+
+package main
+
+import "fmt"
+func main() {
+    var input int
+    kuantitasPositif := 0
+    kuantitasNegatif := 0
+    for {
+        fmt.Scan(&input)
+        if input == 0 {
+            break
+        }
+        if input > 0 {
+            kuantitasPositif++
+        } 
+        if input < 0 {
+            kuantitasNegatif++
+        }
+    }
+    fmt.Println(kuantitasPositif, kuantitasNegatif)
+}
+
+// 3 orang bermain dadu dan pemenangnya adalah yang jumlah mata dadunya paling kecil
+
+package main
+
+import "fmt"
+func main() {
+	var pemain1, pemain2, pemain3 int
+	var ronde int; fmt.Scan(&ronde)
+	i := 0
+	var jumlahPemain1, jumlahPemain2, jumlahPemain3 int
+	for i < ronde {
+		i++
+		fmt.Scan(&pemain1, &pemain2, &pemain3)
+		jumlahPemain1 += pemain1
+		jumlahPemain2 += pemain2
+		jumlahPemain3 += pemain3
+	}
+	if jumlahPemain1 < jumlahPemain2 && jumlahPemain2 < jumlahPemain3 {
+		fmt.Print("pemain 1 dengan poin terkecil: ",jumlahPemain1)
+	} else if jumlahPemain1 < jumlahPemain3 && jumlahPemain3 < jumlahPemain2 {
+		fmt.Print("pemain 1 dengan poin terkecil: ",jumlahPemain1)
+	} else if jumlahPemain2 < jumlahPemain3 && jumlahPemain3 < jumlahPemain1 {
+		fmt.Print("pemain 2 dengan poin terkecil: ",jumlahPemain2)
+	} else if jumlahPemain2 < jumlahPemain1 && jumlahPemain1 < jumlahPemain3 {
+		fmt.Print("pemain 2 dengan poin terkecil: ",jumlahPemain2)
+	} else if jumlahPemain3 < jumlahPemain1 && jumlahPemain1 < jumlahPemain2 {
+		fmt.Print("pemain 3 dengan poin terkecil: ",jumlahPemain3)
+	} else {
+		fmt.Print("pemain 3 dengan poin terkecil: ",jumlahPemain3)
+	}
+}
+
+// menjumlahan deret bilangan dari bilangan pertama hingga ke bilangan kedua
+
+package main
+
+import "fmt"
+func main () {
+	var angka1, angka2, penjumlahan int
+	fmt.Scan(&angka1, &angka2)
+	for i := angka1; i <= angka2; i++ {
+		penjumlahan += i 
+		// fmt.Println(penjumlahan) //taruh sini buat nampilin semuanya
+	}
+	fmt.Println(penjumlahan) //taruh sini buat nampilin yg terakhir
+}
+
+// mencetak kuadrat dari 1 sampai suatu bilangan
+
+package main
+
+import "fmt"
+func main () {
+	var angka int
+	fmt.Scanln(&angka)
+	for i := 1 ; i <= angka; i++ {
+		kuadrat := i * i
+		fmt.Print(kuadrat, " ")
+	}
+	
+}
+
+// konversi mata uang qirat
+
+package main
+
+import "fmt"
+func main() {
+	var qirat int
+	fmt.Print("qirat: ")
+	fmt.Scan(&qirat)
+
+	fals := qirat / 6
+	qirat = qirat % 6
+
+	dirham := fals / 10
+	fals = fals % 10
+
+	dinar := dirham / 10
+	dirham = dirham % 10
+
+	fmt.Print(dinar, dirham, fals, qirat)
+}
+
+// menjumlahkan deret fibonacci berdasarkan kuantitas deret fibonacci
+
+package main
+
+import "fmt"
+func main() {
+	var kuantitasFibonacci, fibonacciKe1, fibonacciKe2, i, fibonacci, total int
+	fmt.Print("kuantitas fibonacci: "); fmt.Scan(&kuantitasFibonacci)
+	fibonacciKe1    = 0
+	fibonacciKe2    = 1
+	total = 0
+	for i = 0; i < kuantitasFibonacci; i++ {
+		fmt.Print(" + ", fibonacciKe1) 
+		total += fibonacciKe1
+		fibonacci = fibonacciKe1 + fibonacciKe2 
+		if fibonacci > 988 { 
+			break
+		}
+		fibonacciKe1 = fibonacciKe2
+		fibonacciKe2 = fibonacci
+	}
+	fmt.Println() //ini cuma buat enter
+	fmt.Print("penjumlahan deret fibonacci:", total) 
+}
+
+// meminta bunga hingga bunga yang diinginkan benar
+
+package main
+
+import "fmt"
+func main() {
+	var flower string
+	for flower != "BlueSpiderLily" {
+		fmt.Print("give me flower: ")
+		fmt.Scan(&flower)
+		fmt.Println("no, i want BlueSpiderLily.")
+	}
+	fmt.Print("thanks :)")
+}
+
+// mencari angka terbesar di suatu deret angka
+
+package main
+
+import "fmt"
+func main() {
+	var angka int
+	fmt.Print("angka: ")
+	fmt.Scanln(&angka)
+	digitTerbesar := 0
+	for angka > 0 {
+		periksaDigit := angka % 10
+		if periksaDigit > digitTerbesar {
+			digitTerbesar = periksaDigit
+		}
+		angka = angka / 10
+	}
+	fmt.Println("digit terbesar:", digitTerbesar)
+}
+
+// menentukan jumlah kuantitas suatu deret angka
+
+package main
+
+import "fmt"
+func main() {
+    var angka int; fmt.Print("angka: "); fmt.Scan(&angka)
+    kuantitasDigit := 0
+    for angka > 0 {
+        angka = angka / 10
+		kuantitasDigit++
+    }
+    fmt.Println("kuantitas digit:", kuantitasDigit)
+}
+
+// donatur
+
+package main
+
+import "fmt"
+func main() {
+    var minta int; fmt.Print("aku minta: "); fmt.Scan(&minta)
+
+    dapet := 0
+    berapa := 0
+
+    for minta > dapet {
+        berapa += 1
+        fmt.Print("kamu kasih: "); var kasih int; fmt.Scan(&kasih)
+        dapet += kasih
+        fmt.Print("aku punya: "); fmt.Println(dapet)
+        fmt.Println("berapa kali:", berapa)
+    }
+}
+
+// mencetak deret angka ganjil hingga suatu angka yang diinputkan
+
+package main
+
+import "fmt"
+func main() {
+	var x int; fmt.Print("x: "); fmt.Scan(&x)
+	for i := 0; i <= x; i++ {
+		if i % 2 == 1 {
+			fmt.Print(i)
+		}
+	}
+}
+
+// menu
+
+package main
+
+import "fmt"
+func main() {
+	fmt.Println("1: penjumlahan")
+	fmt.Println("2: perkalian")
+	fmt.Println("3: cek prima")
+	fmt.Println("4: keluar")
+	var menu int
+	for menu != 4 {
+		fmt.Print("menu: "); fmt.Scan(&menu)
+		switch menu {
+		case 1:
+			var a int; fmt.Print("a: "); fmt.Scan(&a)
+			var b int; fmt.Print("b: "); fmt.Scan(&b)
+			fmt.Println("a + b = ", a+b)
+		case 2:
+			var a int; fmt.Print("a: "); fmt.Scan(&a)
+			var b int; fmt.Print("b: "); fmt.Scan(&b)
+			fmt.Println("a x b = ", a*b)
+		case 3:
+			var c int; fmt.Print("c: "); fmt.Scan(&c)
+			isPrime := true
+			if c <= 1 {
+				isPrime = false
+			} else {
+				i := 2
+				for i < c && isPrime {
+					if c%i == 0 {
+						isPrime = false
+					}
+					i++
+				}
+			}
+			if isPrime {
+				fmt.Println(c, "prima")
+			} else {
+				fmt.Println(c, "tidak prima")
+			}
+		case 4:
+			fmt.Println("program selesai")
+		default:
+			fmt.Println("hanya ada menu 1, 2, dan 4!")
+		}
+	}
+}
